@@ -1,0 +1,109 @@
+.faq {
+    @include media-breakpoint-up(lg) {
+        padding-top: 30px;
+        padding-bottom: 60px;
+    }
+    @include media-breakpoint-up(xs) {
+        padding-bottom: 20px;
+        padding-top: 30px;
+    }
+    &__flex {
+        display: block;
+    }
+    &__item {
+        display: flex;
+        align-items: stretch;
+        justify-content: space-between;
+        margin-bottom: 23px;
+        @include media-breakpoint-down(sm) {
+            margin-bottom: 10px;
+        }
+        &__content {
+            margin-right: 4px;
+            flex-grow: 1;
+            border: 1px solid white;
+            transition: $trsn;
+        }
+        &__heading {
+            width: 100%;
+            background: $white-primary;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            font-weight: $bold;
+            cursor: pointer;
+            transition: $trsn;
+            color: $primary;
+            @include media-breakpoint-up(lg) {
+                padding: 16px 25px;
+                font-size: $fs-18;
+            }
+            @include media-breakpoint-up(xs) {
+                padding: 11px 16px;
+                font-size: $fs-15;
+            }
+            &:hover {
+                color: $black;
+            }
+        }
+        &__arrow {
+            background: $white-primary;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: $trsn;
+            @include media-breakpoint-up(lg) {
+                padding: 13px;
+            }
+            @include media-breakpoint-up(xs) {
+                padding: 8px;
+            }
+            @include media-breakpoint-down(md) {
+                svg {
+                    width: 26px;
+                    height: 26px;
+                }
+            }
+            svg {
+                transition: $trsn;
+                path {
+                    transition: $trsn;
+                }
+            }
+        }
+        &__subheading {
+            font-size: $fs-16;
+            background: $white;
+            @include media-breakpoint-up(lg) {
+                padding: 0 25px 16px 25px;
+            }
+            @include media-breakpoint-down(md) {
+                font-size: $fs-14;
+            }
+            @include media-breakpoint-down(xs) {
+                font-size: $fs-12;
+            }
+            @include media-breakpoint-up(xs) {
+                padding: 0 16px 11px 16px;
+            }
+        }
+        &.is-active {
+            .faq__item__heading {
+                background: $white;
+                color: $black;
+            }
+            .faq__item__content {
+                border-color: #E9E9F3;
+            }
+            .faq__item__arrow {
+                svg {
+                    transform: rotateZ(180deg);
+                    path {
+                        stroke: #9DB0C2;
+                    }
+                }
+            }
+        }
+    }
+}

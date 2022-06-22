@@ -1,0 +1,281 @@
+.form-block {
+    position: relative;
+    @include media-breakpoint-up(lg) {
+        padding-top: 60px;
+        padding-bottom: 60px;
+    }
+    @include media-breakpoint-up(xs) {
+        padding-bottom: 30px;
+        padding-top: 30px;
+    }
+    &__wrapper {
+        border: solid $white-primary;
+        @include media-breakpoint-up(xlg) {
+            border-width: 20px;
+            padding: 55px;
+        }
+        @include media-breakpoint-up(lg) {
+            border-width: 15px;
+            padding: 30px;
+        }
+        @include media-breakpoint-up(xs) {
+            border-width: 10px;
+            padding: 20px;
+        }
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        @include media-breakpoint-down(md) {
+            flex-wrap: wrap;
+        }
+        .form-policy {
+            display: block;
+            font-weight: $medium;
+            font-size: $fs-12;
+            margin-top: 7px;
+            color: $gray-semilight;
+            a {
+                color: inherit;
+                border-bottom: 1px solid $gray-semilight;
+                &:hover {
+                    color: $primary;
+                    border-bottom-color: $primary;
+                }
+            }
+        }
+        .method-form-flex {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            flex-wrap: wrap;
+            svg {
+                margin-right: 20px;
+            }
+        }
+    }
+    &__content {
+        @include media-breakpoint-up(lg) {
+            max-width: 317px;
+        }
+        @include media-breakpoint-down(md) {
+            .form-block__heading {
+                br {
+                    display: none;
+                }
+            }
+        }
+        flex-grow: 1;
+    }
+    &__heading {
+        p {
+            color: $gray-secondary;
+            margin-bottom: 1em;
+            @include media-breakpoint-up(lg) {
+                font-size: $fs-18;
+            }
+            @include media-breakpoint-up(xs) {
+                font-size: $fs-16;
+            }
+        }
+    }
+    &__cf7 {
+        flex-grow: 1;
+        @include media-breakpoint-up(lg) {
+            margin-left: 40px;
+        }
+        .js-donate-radio {
+            display: flex;
+            align-items: stretch;
+            margin-bottom: 40px;
+            @include media-breakpoint-down(md) {
+                flex-wrap: wrap;
+                margin-bottom: 20px;
+            }
+            .donate-item {
+                font-weight: $bold;
+                flex-grow: 1;
+                flex-basis: 0;
+                color: $primary;
+                border-bottom: 2px solid #E3EDF1;
+                margin-right: 3px;
+                transition: $trsn;
+                cursor: pointer;
+                @include media-breakpoint-up(lg) {
+                    font-size: $fs-18;
+                    padding: 16px 20px;
+                }
+                @include media-breakpoint-down(md) {
+                    min-width: 200px;
+                    padding: 10px 15px;
+                    font-size: $fs-12;
+                }
+                &:hover {
+                    background: $white-primary;
+                    border-bottom-color: $white-primary;
+                }
+                &.is-selected {
+                    background: $black;
+                    color: $white;
+                    border-bottom-color: $black;
+                }
+            }
+        }
+        .flex-form {
+            display: flex;
+            align-items: stretch;
+            justify-content: flex-start;
+            margin: 0 -10px 0 -10px;
+            flex-wrap: wrap;
+            .flex-form-item {
+                display: block;
+                padding: 0 10px 20px 10px;
+                flex-grow: 1;
+                flex-basis: 0;
+                min-width: 237px;
+                .wpcf7-form-control-wrap.your_price_select {
+                    display: flex;
+                    align-items: flex-start;
+                    justify-content: flex-end;
+                    width: 100%;
+                    svg {
+                        position: absolute;
+                        top: 5px;
+                        transition: $trsn;
+                    }
+                    select {
+                        position: absolute;
+                        z-index: -40;
+                    }
+                }
+                .btn-form {
+                    white-space: nowrap;
+                    @include media-breakpoint-down(xs) {
+                        font-size: $fs-13;
+                        padding: 15px;
+                        width: 100%;
+                    }
+                }
+                label, .label-block {
+                    display: block;
+                    transition: $trsn;
+                    border-bottom: 1px solid $black;
+                    background: $white-primary;
+                    padding: 9px 14px;
+                    height: 100%;
+                    cursor: pointer;
+                    &:hover {
+                        border-bottom-color: $primary;
+                    }
+                    &.is-active, &.label--valid {
+                        border-bottom-color: $primary;
+                        .label-span {
+                            color: $gray-primary;
+                        }
+                    }
+                    &.label--error {
+                        border-bottom-color: $red;
+                        .label-span {
+                            position: relative;
+                            color: transparent;
+                            &:before {
+                                color: $red;
+                                position: absolute;
+                                right: 0;
+                                top: 0;
+                                left: 0;
+                                content: attr(aria-label-error);
+                            }
+                        }
+                    }
+                    .label-span {
+                        width: 100%;
+                        display: block;
+                        font-weight: $medium;
+                        font-size: $fs-12;
+                        color: $black;
+                    }
+                    input {
+                        background: transparent;
+                        appearance: none;
+                        border: 0;
+                        box-shadow: none;
+                        border-radius: 0;
+                        padding: 0;
+                        margin: 0;
+                        min-width: 0;
+                        max-width: none;
+                        width: 100%;
+                        font-size: $fs-16;
+                        margin-top: 7px;
+                    }
+                    select {
+                        background: transparent;
+                        appearance: none;
+                        border: 0;
+                        box-shadow: none;
+                        border-radius: 0;
+                        min-width: 0;
+                        max-width: none;
+                        width: 100%;
+                        margin-top: 6px;
+                        font-size: $fs-16;
+                        font-weight: $bold;
+                    }
+                    .custom-select {
+                        & + select {
+                            opacity: 0;
+                            visibility: hidden;
+                            display: block;
+                            margin-bottom: -1.5em;
+                        }
+                        &.is-open + svg {
+                            transform: rotateZ(180deg);
+                        }
+                        width: 100%;
+                        font-size: $fs-16;
+                        margin-top: 7px;
+                        font-weight: $bold;
+                        position: relative;
+                        .custom-select-list {
+                            margin-top: 10px;
+                            margin-left: -13px;
+                            margin-right: -13px;
+                            background: $white-primary;
+                            padding: 5px;
+                            display: none;
+                            position: absolute;
+                            top: 100%;
+                            left: 0;
+                            right: 0;
+                            z-index: 40;
+                            div {
+                                display: block;
+                                font-size: $fs-12;
+                                font-weight: 600;
+                                padding: 6px 8px;
+                                transition: $trsn;
+                                &:hover {
+                                    color: $primary;
+                                }
+                                &.checked {
+                                    background: $white;
+                                    color: $primary;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            &.btn-flex-form {
+                align-items: center;
+                .flex-form-item {
+                    flex-grow: 0;
+                    flex-basis: auto;
+                    @include media-breakpoint-down(xs) {
+                        flex-grow: 1;
+                    }
+                }
+            }
+        }
+    }
+}

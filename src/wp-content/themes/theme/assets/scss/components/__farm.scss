@@ -1,0 +1,174 @@
+.farm {
+    position: relative;
+    overflow: hidden;
+    @include media-breakpoint-up(lg) {
+        padding-top: 60px;
+        padding-bottom: 60px;
+        &:before {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            height: 50%;
+            left: -10px;
+            width: 50%;
+            z-index: -5;
+            background: $white-primary;
+        }
+    }
+    @include media-breakpoint-up(xs) {
+        padding-bottom: 30px;
+        padding-top: 30px;
+    }
+    &__flex {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        @include media-breakpoint-down(md) {
+            flex-wrap: wrap;
+        }
+    }
+    &__gal {
+        @include media-breakpoint-up(lg) {
+            flex: 0 1 50%;
+            max-width: 50%;
+            padding-right: 10px;
+        }
+        @include media-breakpoint-up(xs) {
+            flex: 0 1 100%;
+            max-width: 100%;
+        }
+    }
+    .swiper-group {
+        position: relative;
+        @include media-breakpoint-up(lg) {
+            margin-left: -40%;
+        }
+    }
+    .swiper-buttons-group {
+        display: flex;
+        align-items: stretch;
+        justify-content: center;
+        position: absolute;
+        right: 0;
+        bottom: 0;
+    }
+    .swiper-pagination {
+        @include media-breakpoint-up(lg) {
+            display: none;
+        }
+        @include media-breakpoint-down(md) {
+            display: block;
+        }
+    }
+    .swiper-slide {
+        height: auto;
+    }
+    .swiper-pagination-group {
+        @include media-breakpoint-up(lg) {
+            display: none;
+        }
+        @include media-breakpoint-up(xs) {
+            display: flex;
+            margin-bottom: 50px;
+            .swiper-pagination {
+                position: absolute;
+                bottom: -30px;
+            }
+        }
+        .swiper-pagination-bullet {
+            border-radius: 0;
+            width: 12px;
+            background: rgba($color: $black, $alpha: 0.2);
+            &-active {
+                background: $primary;
+            }
+        }
+    }
+    &__item {
+        display: flex;
+        align-items: stretch;
+        justify-content: center;
+        max-height: 450px;
+        a {
+            display: flex;
+            align-items: stretch;
+            justify-content: center;
+            width: 100%;
+            img {
+                height: 100%;
+                width: 100%;
+                object-position: center;
+                object-fit: cover;
+            }
+        }
+    }
+    &__content {
+        @include media-breakpoint-up(xlg) {
+            margin-left: 60px;
+        }
+        @include media-breakpoint-up(lg) {
+            margin-left: 40px;
+        }
+    }
+    &__text {
+        p {
+            color: $gray-1;
+        }
+    }
+    &__nums {
+        display: flex;
+        align-items: flex-start;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        & > * {
+            @include media-breakpoint-up(xlg) {
+                padding-right: 63px;
+            }
+            @include media-breakpoint-up(lg) {
+                padding-right: 0px;
+            }
+            @include media-breakpoint-up(sm) {
+                padding-right: 40px;
+            }
+            @include media-breakpoint-up(xs) {
+                padding-right: 0px;
+                margin-bottom: 20px;
+            }
+        }
+        &__title {
+            position: relative;
+            @include media-breakpoint-up(lg) {
+                padding-left: 40px;
+                padding-bottom: 20px;
+                margin-bottom: 20px;
+            }
+            @include media-breakpoint-up(xs) {
+                padding-left: 30px;
+                padding-bottom: 12px;
+                margin-bottom: 12px;
+            }
+            &:after {
+                content: "";
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                background: $primary;
+                height: 2px;
+                @include media-breakpoint-up(lg) {
+                    width: 119px;
+                }
+                @include media-breakpoint-up(xs) {
+                    width: 50%;
+                }
+            }
+        }
+        &__subtitle {
+            @include media-breakpoint-up(lg) {
+                padding-left: 40px;
+            }
+            @include media-breakpoint-up(xs) {
+                padding-left: 30px;
+            }
+        }
+    }
+}

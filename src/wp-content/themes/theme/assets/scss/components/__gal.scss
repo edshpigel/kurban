@@ -1,0 +1,137 @@
+.gal {
+    position: relative;
+    overflow: hidden;
+    @include media-breakpoint-up(lg) {
+        padding-top: 60px;
+        padding-bottom: 60px;
+        &:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            height: 50%;
+            left: 0;
+            width: 50%;
+            z-index: -5;
+            background: $white-primary;
+        }
+    }
+    @include media-breakpoint-up(xs) {
+        padding-bottom: 30px;
+        padding-top: 30px;
+    }
+    &__headings {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        @include media-breakpoint-up(lg) {
+            margin-bottom: 60px;
+        }
+        @include media-breakpoint-down(md) {
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+    }
+    &__heading {
+        position: relative;
+        @include media-breakpoint-up(lg) {
+            flex: 0 1 50%;
+        }
+        @include media-breakpoint-down(md) {
+            margin-bottom: 20px;
+            width: 100%;
+        }
+        &:after {
+            content: "";
+            display: block;
+            bottom: 0;
+            left: 0;
+            width: 90%;
+            background: $primary;
+            height: 3px;
+        }
+    }
+    &__subtitle {
+        color: $gray-secondary;
+        @include media-breakpoint-up(lg) {
+            font-size: $fs-18;
+            flex: 0 1 calc(50% - 30px);
+        }
+        @include media-breakpoint-up(xs) {
+            font-size: $fs-16;
+        }
+        @include media-breakpoint-down(xs) {
+            br {
+                display: none;
+            }
+        }
+    }
+    &__slider {
+        position: relative;
+        &__pag {
+            @include media-breakpoint-up(lg) {
+                display: none;
+            }
+            @include media-breakpoint-up(xs) {
+                display: flex;
+                .swiper-pagination {
+                    position: relative;
+                    bottom: 0;
+                    margin-top: 15px;
+                }
+            }
+            .swiper-pagination-bullet {
+                border-radius: 0;
+                width: 12px;
+                background: rgba($color: $black, $alpha: 0.2);
+                &-active {
+                    background: $primary;
+                }
+            }
+        }
+    }
+    &__item {
+        &__wrapper {
+            display: block;
+            padding-top: 100%;
+            position: relative;
+            img {
+                position: absolute;
+                object-position: center;
+                object-fit: cover;
+                top: 0;
+                right: 0;
+                left: 0;
+                bottom: 0;
+                height: 100%;
+                width: 100%;
+            }
+        }
+    }
+    .swiper-prev-gal, .swiper-next-gal {
+        position: absolute;
+        margin-top: calc(-1 * var(--swiper-navigation-size) / 2);
+        border-radius: 4px;
+        @include media-breakpoint-down(md) {
+            display: none;
+        }
+    }
+    .swiper-prev-gal {
+        @include media-breakpoint-up(xl) {
+            right: 100%;
+            left: auto;
+        }
+        @include media-breakpoint-up(xs) {
+            right: auto;
+        }
+    }
+    .swiper-next-gal {
+        background: $white;
+        @include media-breakpoint-up(xl) {
+            left: 100%;
+            right: auto;
+        }
+        @include media-breakpoint-up(xs) {
+            left: auto;
+        }
+    }
+}

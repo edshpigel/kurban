@@ -1,0 +1,100 @@
+.partners {
+    position: relative;
+    overflow: hidden;
+    @include media-breakpoint-up(lg) {
+        padding-top: 60px;
+        padding-bottom: 60px;
+    }
+    @include media-breakpoint-up(xs) {
+        padding-bottom: 30px;
+        padding-top: 30px;
+    }
+    &__group {
+        position: relative;
+    }
+    .swiper-slide {
+        height: auto;
+    }
+    &-swiper {
+        border: 1px solid #E9E9F3;
+        border-top-width: 1px;
+        border-bottom-width: 1px;
+        border-right-width: 1px;
+        border-left-width: 1px;
+    }
+    &__item {
+        height: 100%;
+        display: flex;
+        align-items: stretch;
+        justify-content: center;
+        border-right: 1px solid #E9E9F3;
+        &__wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 15px;
+            img {
+                object-fit: contain;
+                object-position: center;
+                @include media-breakpoint-up(lg) {
+                    max-width: 200px;
+                    max-height: 120px;
+                }
+                @include media-breakpoint-up(xs) {
+                    max-height: 80%;
+                    max-width: 80%;
+                }
+            }
+        }
+    }
+    .swiper-prev-partners, .swiper-next-partners {
+        position: absolute;
+        margin-top: calc(-1 * var(--swiper-navigation-size) / 2);
+        border-radius: 4px;
+        top: 45%;
+        @include media-breakpoint-down(md) {
+            display: none;
+        }
+    }
+    .swiper-prev-partners {
+        @include media-breakpoint-up(lg) {
+            right: 100%;
+            left: auto;
+        }
+        @include media-breakpoint-up(xs) {
+            right: auto;
+        }
+    }
+    .swiper-next-partners {
+        background: $white;
+        @include media-breakpoint-up(lg) {
+            left: 100%;
+            right: auto;
+        }
+        @include media-breakpoint-up(xs) {
+            left: auto;
+        }
+    }
+    .swiper-pagination-group {
+        
+        @include media-breakpoint-up(lg) {
+            display: none;
+        }
+        @include media-breakpoint-up(xs) {
+            display: flex;
+            .swiper-pagination {
+                position: relative;
+                bottom: 0;
+                margin-top: 15px;
+            }
+        }
+        .swiper-pagination-bullet {
+            border-radius: 0;
+            width: 12px;
+            background: rgba($color: $black, $alpha: 0.2);
+            &-active {
+                background: $primary;
+            }
+        }
+    }
+}

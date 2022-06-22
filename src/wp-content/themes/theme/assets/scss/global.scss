@@ -1,0 +1,704 @@
+// Vars site
+@import "__vars";
+// Custom functions bootstrap
+@import "vendor/bootstrap/bootstrap-functions";
+// AOS css
+@import "../css/vendor/aos.min";
+// Fancybox css
+@import "vendor/fancybox.min";
+
+*,
+*::before,
+*::after {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    outline: none;
+}
+
+::-moz-selection {
+    background: $primary;
+    color: $white;
+    text-shadow: none;
+    -webkit-text-stroke: 0px transparent;
+}
+
+::selection {
+    background: $primary;
+    color: $white;
+    text-shadow: none;
+    -webkit-text-stroke: 0px transparent;
+}
+
+a {
+    text-decoration: none;
+    color: $primary;
+    transition: $trsn;
+    &:hover {
+        text-decoration: none;
+        color: $primary-hover;
+    }
+}
+g {
+    clip-path: none;
+}
+
+button {
+    cursor: pointer;
+}
+
+p {
+    margin: 0;
+}
+
+html {
+    min-width: 320px;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    margin: 0;
+    background-color: $white;
+    @include media-breakpoint-up(sm) {
+        font-size: 14px;
+    }
+    @include media-breakpoint-up(xs) {
+        font-size: 12px;
+    }
+    font-weight: 400;
+    font-family: 'Montserrat', sans-serif,Arial,Helvetica,sans-serif;
+    color: $black;
+    line-height: 1.5;
+    text-align: left;
+    overflow-x: hidden;
+    overflow-y: visible;
+    min-width: 320px;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    @include media-breakpoint-down(md) {
+        &.menu-toggled {
+            overflow: hidden;
+        }
+    }
+}
+
+.screen-page {
+    width: 100%;
+    height: auto;
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+img {
+    max-width: 100%;
+}
+
+.strong-primary {
+    strong {
+        color: $primary;
+    }
+}
+
+.fancybox-slide--video {
+    @include media-breakpoint-down(md) {
+        padding: 15px !important;
+    }
+}
+
+// Container
+.container {
+    margin-right: auto;
+    margin-left: auto;
+    @include make-container();
+    width: 100%;
+}
+
+// Font-size
+h1,
+.h1 {
+    @include media-breakpoint-up(xl) {
+        font-size: 48px;
+    }
+    @include media-breakpoint-up(lg) {
+        font-size: 34px;
+    }
+    @include media-breakpoint-up(sm) {
+        font-size: 28px;
+    }
+    @include media-breakpoint-up(xs) {
+        font-size: 26px;
+    }
+    font-weight: bold;
+    line-height: 1.2em;
+}
+
+h2,
+.h2 {
+    @include media-breakpoint-up(xl) {
+        font-size: 38px;
+    }
+    @include media-breakpoint-up(lg) {
+        font-size: 32px;
+    }
+    @include media-breakpoint-up(xs) {
+        font-size: 24px;
+    }
+    font-weight: bold;
+    line-height: 1.2em;
+}
+
+h3,
+.h3 {
+    @include media-breakpoint-up(xl) {
+        font-size: 34px;
+    }
+    @include media-breakpoint-up(lg) {
+        font-size: 25px;
+    }
+    @include media-breakpoint-up(sm) {
+        font-size: 20px;
+    }
+    @include media-breakpoint-up(xs) {
+        font-size: 18px;
+    }
+    font-weight: bold;
+    line-height: 1.2em;
+}
+
+h4,
+.h4 {
+    @include media-breakpoint-up(xl) {
+        font-size: 22px;
+    }
+    @include media-breakpoint-up(md) {
+        font-size: 21px;
+    }
+    @include media-breakpoint-up(sm) {
+        font-size: 18px;
+    }
+    @include media-breakpoint-up(xs) {
+        font-size: 16px;
+    }
+    line-height: 1.4em;
+    font-weight: normal;
+}
+
+h5,
+.h5 {
+    @include media-breakpoint-up(md) {
+        font-size: 20px;
+    }
+    @include media-breakpoint-up(sm) {
+        font-size: 15px;
+    }
+    @include media-breakpoint-up(xs) {
+        font-size: 14px;
+    }
+    line-height: 1.4em;
+    font-weight: normal;
+}
+
+h6,
+.h6 {
+    @include media-breakpoint-up(xl) {
+        font-size: 16px;
+    }
+    @include media-breakpoint-up(md) {
+        font-size: 14px;
+    }
+    @include media-breakpoint-up(xs) {
+        font-size: 13px;
+    }
+    line-height: 1.4em;
+    font-weight: normal;
+}
+
+.large-h {
+    @include media-breakpoint-up(xl) {
+        font-size: 64px;
+    }
+    @include media-breakpoint-up(lg) {
+        font-size: 48px;
+    }
+    @include media-breakpoint-up(sm) {
+        font-size: 44px;
+    }
+    @include media-breakpoint-up(xs) {
+        font-size: 41px;
+    }
+    font-weight: bold;
+    line-height: 1.2em;
+}
+
+.content-field {
+    p {
+        margin-bottom: 1em;
+        @include media-breakpoint-up(xl) {
+            font-size: $fs-22;
+        }
+        @include media-breakpoint-up(lg) {
+            font-size: $fs-18;
+        }
+        @include media-breakpoint-up(xs) {
+            font-size: $fs-14;
+        }
+    }
+}
+
+// ========================================================
+// Styles Swiper
+// ========================================================
+
+section .swiper-button-prev-secondary, section .swiper-button-next-secondary {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: auto;
+    width: auto;
+    left: 0;
+    right: 0;
+    font-weight: 100;
+    color: $black;
+    transition: $trsn;
+    margin-top: 0;
+    &:hover {
+        color: $primary;
+    }
+    &:after {
+        font-size: inherit;
+    }
+    @include media-breakpoint-up(lg) {
+        padding: 20px 25.6px;
+        font-size: 20px;
+    }
+    @include media-breakpoint-up(xs) {
+        padding: 15px 19.6px;
+        font-size: 18px;
+    }
+}
+
+section .swiper-button-prev-secondary.swiper-button-disabled, 
+section .swiper-button-next-secondary.swiper-button-disabled {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+section .swiper-button-primary {
+    background: $primary !important;
+    color: $white !important;
+    &:hover {
+        background: $primary-hover !important;
+    }
+}
+
+.swiper-button-prev-secondary {
+    background: $white;
+}
+.swiper-button-next-secondary {
+    background: $white-primary;
+}
+
+.swiper-pagination-group {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+.swiper-pagination {
+    width: auto !important;
+    transform: translateX(-50%);
+    flex-wrap: nowrap;
+    bottom: 20px;
+    .swiper-pagination-bullet {
+        margin: 0 3px;
+        transition: $trsn;
+        border-radius: 50%;
+        opacity: 1;
+        background: rgba($color: $white, $alpha: 0.5);
+    }
+    .swiper-pagination-bullet-active {
+        background: $white;
+    }
+}
+
+// ========================================================
+// Styles site
+// ========================================================
+
+
+.trsn {
+    transition: $trsn;
+}
+
+.tel-shortcode {
+    font-weight: $bold;
+    color: inherit;
+    transition: $trsn;
+    &:hover {
+        color: $primary;
+    }
+}
+
+.btn {
+    display: inline-block;
+    color: $white;
+    text-decoration: none;
+    text-align: center;
+    background: $primary;
+    transition: $trsn;
+    font-weight: $bold;
+    border: 1px solid transparent;
+    line-height: 1.15em;
+    @include media-breakpoint-up(lg) {
+        padding: 25px 31px;
+        font-size: $fs-16;
+    }
+    @include media-breakpoint-up(xs) {
+        font-size: $fs-15;
+        padding: 21px 27px;
+    }
+    &:hover {
+        background: $primary-hover;
+        color: $white;
+    }
+    &.btn--white {
+        background: $white;
+        color: $primary;
+        &:hover {
+            background: rgba($color: $white, $alpha: 0.8);
+        }
+    }
+    &.btn--text-black {
+        color: $black;
+    }
+    &.btn--secondary {
+        background: $gray-1;
+        color: $primary;
+        &:hover {
+            background: #E5EBF4;
+        }
+    }
+    &.btn--outline-primary {
+        background: transparent;
+        border: 1px solid rgba($color: $primary, $alpha: 0.5);
+        color: $primary;
+        &:hover {
+            border-color: $primary-hover;
+        }
+    }
+    &.btn--outline {
+        background: transparent;
+        border: 1px solid rgba($color: $white, $alpha: 0.5);
+        &:hover {
+            border-color: $white;
+        }
+    }
+}
+
+// ========================================================
+// 404 page
+// ========================================================
+
+.page-404 {
+    position: relative;
+    @include media-breakpoint-up(lg) {
+        margin-bottom: 100px;
+    }
+    @include media-breakpoint-up(xs) {
+        margin-bottom: 60px;
+    }
+    &__flex {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        @include media-breakpoint-down(md) {
+            flex-wrap: wrap-reverse;
+            padding-top: 20px;
+        }
+    }
+    &__img {
+        display: flex;
+        align-items: center;
+        padding-top: 20px;
+        @include media-breakpoint-down(md) {
+            padding-bottom: 20px;
+        }
+        svg {
+            max-width: 100%;
+            max-height: 100%;
+            height: auto;
+        }
+    }
+    .h3 {
+        font-weight: normal;
+        @include media-breakpoint-up(lg) {
+            margin-bottom: 40px;
+        }
+        @include media-breakpoint-up(xs) {
+            margin-bottom: 20px;
+        }
+    }
+    &__content {
+        padding-top: 20px;
+        @include media-breakpoint-up(lg) {
+            max-width: 50%;
+        }
+        @include media-breakpoint-down(md) {
+            padding-top: 0;
+        }
+        &__bread {
+            @include media-breakpoint-up(lg) {
+                margin-bottom: 60px;
+            }
+            @include media-breakpoint-up(xs) {
+                margin-bottom: 25px;
+            }
+            a {
+                display: inline-block;
+                transition: $trsn;
+                &:hover {
+                    color: $primary;
+                }
+            }
+        }
+    }
+}
+
+// ========================================================
+// Cookie
+// ========================================================
+
+#cookie_notification{
+    display: none;
+    position: fixed;
+    z-index: 51;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: auto;
+    padding: 18px;
+    background-color: $white-primary;
+    @include media-breakpoint-down(sm) {
+        padding: 8px 0;
+    }
+    .container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        align-items: center;
+    }
+    &.show {
+        animation: CookieAnim ease-in-out 1s alternate;
+    }
+    p {
+        margin: 0;
+        font-size: 0.7rem;
+        text-align: left;
+        color: $black;
+        color: $gray-primary;
+        @include media-breakpoint-up(sm) {
+            font-size: $fs-12;
+            font-weight: 600;
+        }
+        @include media-breakpoint-up(xs) {
+            font-size: $fs-10;
+        }
+    }
+    button {
+        @include media-breakpoint-up(lg) {
+            padding: 10px 32px;
+            font-size: $fs-14;
+        }
+        @include media-breakpoint-up(xs) {
+            padding: 8px 18px;
+            font-size: $fs-11;
+        }
+    }
+  }
+  @include media-breakpoint-up(sm) {
+    #cookie_notification.show{
+        display: flex;
+    }
+    .cookie_accept{
+        margin: 0 0 0 25px;
+    }
+      
+  }
+@include media-breakpoint-down(sm) {
+    #cookie_notification.show{
+        display: block;
+    }
+    #cookie_notification.show .container{
+        display: block;
+    }
+    .cookie_accept{
+        margin: 10px 0 0 0;
+    }   
+}
+
+@keyframes CookieAnim {
+    0% {
+        transform: translate(0, 100%);
+    }
+    70% {
+        transform: translate(0, 100%);
+    }
+    100% {
+        transform: translate(0, 0%);
+    }
+}
+// ========================================================
+// Thanks page
+// ========================================================
+.thanks {
+    @include media-breakpoint-up(lg) {
+        padding-bottom: 50px;
+    }
+    @include media-breakpoint-up(xs) {
+        padding-bottom: 30px;
+    }
+    &__wrapper {
+        display: flex;
+        align-items: stretch;
+        justify-content: flex-start;
+        position: relative;
+        z-index: 1;
+        @include media-breakpoint-down(md) {
+            flex-wrap: wrap-reverse;
+            overflow: hidden;
+        }
+    }
+    &__content {
+        color: $black;
+        @include media-breakpoint-up(lg) {
+            padding: 60px 0;
+            flex: 0 1 40%;
+        }
+        @include media-breakpoint-up(xs) {
+            padding: 30px 0;
+        }
+    }
+    &__h2 {
+        font-weight: $light;
+        @include media-breakpoint-up(lg) {
+            margin: 32px 0;
+        }
+        @include media-breakpoint-up(xs) {
+            margin: 20px 0;
+        }
+        @include media-breakpoint-down(xs) {
+            font-size: $fs-12;
+        }
+    }
+    &__img {
+        display: flex;
+        align-items: stretch;
+        position: relative;
+        flex-grow: 1;
+        @include media-breakpoint-up(lg) {
+            margin-left: 30px;
+        }
+        @include media-breakpoint-down(md) {
+            margin-top: 20px;
+        }
+        img {
+            object-fit: contain;
+            object-position: center;
+            position: relative;
+            z-index: 4;
+        }
+        &__bg {
+            position: absolute;
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            height: 100%;
+            width: 150%;
+            z-index: 2;
+            margin-left: 200px;
+            @include media-breakpoint-down(sm) {
+                margin-left: 180px;
+            }
+            @include media-breakpoint-down(xs) {
+                margin-left: 106px;
+            }
+            &:before {
+                content: "";
+                position: absolute;
+                height: 100%;
+                width: 150%;
+                background: $gradient;
+                opacity: .7;
+            }
+        }
+    }
+}
+
+// ========================================================
+// Contacts form 7 and inputs form styles
+// ========================================================
+.wpcf7-not-valid-tip,
+.wpcf7-response-output,
+.wpcf7 .ajax-loader {
+    display: none;
+}
+
+input {
+    padding: 0;
+    margin: 0;
+    appearance: none;
+    border: 0;
+    max-width: 100%;
+    min-width: auto;
+}
+
+// ========================================================
+// Breadcrumbs
+// ========================================================
+
+.breadcrumbs {
+    text-transform: lowercase;
+    font-size: $fs-12 !important;
+    @include media-breakpoint-down(sm) {
+        font-size: $fs-11 !important;
+    }
+    font-weight: $medium;
+    margin: 10px 0 !important;
+    color: $gray-semilight !important;
+    a {
+        color: $gray-semilight !important;
+        &:hover {
+            color: $primary !important;
+        }
+    }
+}
+
+// ========================================================
+// Import SCSS
+// ========================================================
+@import "components/__header";
+@import "components/__hero";
+@import "components/__mission";
+@import "components/__video-pres";
+@import "components/__gal";
+@import "components/__how-work";
+@import "components/__manufactory";
+@import "components/__partners";
+@import "components/__faq";
+@import "components/__farm";
+@import "components/__video-blog";
+@import "components/__form";
+@import "components/__address";
+@import "components/__footer";
+
+// ========================================================
+// Other components import SCSS
+// ========================================================
+
+@import "components/__modals";
+@import "components/__to-top";
+@import "components/__select_city";

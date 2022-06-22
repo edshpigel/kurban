@@ -1,0 +1,160 @@
+.footer {
+    position: relative;
+    overflow: hidden;
+    @include media-breakpoint-up(lg) {
+        padding-top: 60px;
+        padding-bottom: 60px;
+    }
+    @include media-breakpoint-up(xs) {
+        padding-bottom: 30px;
+        padding-top: 30px;
+    }
+    &__flex {
+        display: flex;
+        align-items: flex-start;
+        justify-content: flex-start;
+        border-bottom: 1px solid $primary;
+        margin-bottom: 40px;
+        @include media-breakpoint-down(md) {
+            margin-bottom: 30px;
+            border-bottom-color: transparent;
+            flex-direction: column;
+        }
+    }
+    &__social {
+        display: flex;
+        align-items: stretch;
+        justify-content: flex-start;
+        @include media-breakpoint-down(lg) {
+            flex-wrap: wrap;
+        }
+        @include media-breakpoint-down(md) {
+            margin-right: 20px;
+            margin-bottom: 20px;
+        }
+        &__item {
+            padding: 17px;
+            background: $white-primary;
+            margin-right: 10px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            @include media-breakpoint-down(lg) {
+                padding: 15px;
+            }
+            &:hover {
+                img {
+                    filter: contrast(1) brightness(1);
+                }
+            }
+            img {
+                transition: $trsn;
+                filter: contrast(1) brightness(0);
+                @include media-breakpoint-down(lg) {
+                    width: 20px;
+                    height: 20px;
+                }
+            }
+        }
+    }
+    &__tel,
+    &__address {
+        margin-left: 50px;
+        position: relative;
+        padding-bottom: 40px;
+        @include media-breakpoint-down(lg) {
+            margin-left: 20px;
+        }
+        @include media-breakpoint-down(md) {
+            margin-left: 0;
+            margin-right: 20px;
+            padding-bottom: 30px;
+            border-left: 1px solid $primary;
+            padding-top: 20px;
+        }
+        &:after {
+            content: "";
+            position: absolute;
+            height: 16px;
+            width: 16px;
+            display: block;
+            background: $primary;
+            bottom: 0;
+            left: 0;
+            @include media-breakpoint-down(md) {
+                width: 12px;
+                height: 12px;
+            }
+        }
+    }
+    &__subtitle {
+        color: $gray-secondary;
+        font-size: $fs-16;
+        @include media-breakpoint-down(md) {
+            font-size: $fs-14;
+            margin-left: 15px;
+        }
+    }
+    &__title {
+        color: $black;
+        @include media-breakpoint-down(md) {
+            margin-left: 15px;
+        }
+    }
+    &__copyright {
+        display: flex;
+        align-items: flex-start;
+        justify-content: flex-start;
+        @include media-breakpoint-down(md) {
+            flex-wrap: wrap;
+        }
+        &__item {
+            color: #c2c9d6;
+            @include media-breakpoint-up(xlg) {
+                min-width: 340px;
+            }
+            @include media-breakpoint-between(lg, lg) {
+                min-width: 300px;
+            }
+            p {
+                margin-bottom: 1em;
+            }
+            a {
+                color: inherit;
+                &:hover {
+                    color: $primary;
+                }
+            }
+        }
+    }
+    &__columns {
+        display: flex;
+        align-items: flex-start;
+        justify-content: flex-start;
+        @include media-breakpoint-down(md) {
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+        &__item {
+            @include media-breakpoint-up(xlg) {
+                margin-left: 40px;
+            }
+            @include media-breakpoint-up(lg) {
+                margin-left: 20px;
+            }
+            @include media-breakpoint-down(md) {
+                margin-right: 20px;
+                margin-bottom: 20px;
+            }
+        }
+        &__text {
+            color: #b7becb;
+            margin-bottom: 5px;
+        }
+        &__link {
+            color: $gray-primary;
+            border-bottom: 1px solid $gray-primary;
+            font-weight: $bold;
+        }
+    }
+}

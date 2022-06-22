@@ -1,0 +1,93 @@
+.manufactory {
+    position: relative;
+    @include media-breakpoint-up(lg) {
+        padding-top: 60px;
+        padding-bottom: 60px;
+    }
+    @include media-breakpoint-up(xs) {
+        padding-bottom: 30px;
+        padding-top: 30px;
+    }
+    &__flex {
+        display: flex;
+        align-items: stretch;
+        justify-content: flex-start;
+        @include media-breakpoint-down(md) {
+            flex-wrap: wrap;
+        }
+    }
+    &__content {
+        @include media-breakpoint-up(xlg) {
+            max-width: 460px;
+        }
+        @include media-breakpoint-up(lg) {
+            max-width: 300px;
+        }
+        .btn {
+            @include media-breakpoint-up(lg) {
+                margin-top: 20px;
+            }
+        }
+    }
+    &__heading {
+        position: relative;
+        padding-bottom: 1px;
+        @include media-breakpoint-up(lg) {
+            margin-bottom: 30px;
+        }
+        @include media-breakpoint-up(xs) {
+            margin-bottom: 20px;
+        }
+        &:after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            right: 20px;
+            height: 3px;
+            background: $primary;
+        }
+    }
+    &__text {
+        @include media-breakpoint-up(lg) {
+            margin-right: 40px;
+        }
+    }
+    &__video {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        position: relative;
+        flex-grow: 1;
+        @include media-breakpoint-up(lg) {
+            min-height: 400px;
+        }
+        @include media-breakpoint-down(md) {
+            margin-top: 30px;
+            padding: 100px 0;
+        }
+        .btn-video {
+            span, > div {
+                transition: $trsn;
+            } 
+        }
+        &:hover {
+            .btn-video {
+                span, > div {
+                    background: $primary-hover;
+                } 
+            }
+        }
+        &__bg {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            z-index: -1;
+        }
+    }
+}

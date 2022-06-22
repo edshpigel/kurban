@@ -1,0 +1,157 @@
+.current_city {
+    cursor: pointer;
+}
+.adress_popover {
+	position: relative;
+	z-index: 100;
+	cursor: pointer;
+	display: inline-block;
+}
+.city_popover {
+	display: none;
+	width: 230px;
+	float: left;
+	font-size: 16px;
+	background-color: #fff;
+	position: absolute;
+	color: #000;
+	top: 100%;
+	left: 50%;
+	box-sizing: border-box;
+	padding: 20px;
+	text-align: center;
+	border: 3px solid #c52033;
+	margin-top: 35px;
+	opacity: 0;
+	font-weight: bold;
+}
+.city_popover:after {
+    content: '';
+    position: absolute;
+    top: -18px;
+    left: 50%;
+    margin-left: -12px;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 15px 15px 15px;
+    border-color: transparent transparent #c52033 transparent;
+    z-index: -1;
+
+}
+.city_popover a {
+	display: inline-block;
+	margin: 10px 20px 0;
+}
+.city_modal {
+    @include media-breakpoint-up(xlg) {
+        margin-left: -390px;
+        width: 780px;
+    }
+    @include media-breakpoint-up(sm) {
+        margin-left: -200px;
+        width: 400px;
+    }
+    @include media-breakpoint-up(xs) {
+        margin-left: -150px;
+        width: 300px;
+    }
+    /* height: 300px; */
+    background: #fff;
+    position: fixed;
+    top: 5%;
+    left: 50%;
+    /*margin-top: -150px;*/
+    display: none;
+    opacity: 0;
+    z-index: 121;
+    box-sizing: border-box;
+    padding: 30px;
+    border: solid $white-primary;
+    @include media-breakpoint-up(xlg) {
+        border-width: 20px;
+        padding: 30px;
+    }
+    @include media-breakpoint-up(lg) {
+        border-width: 15px;
+        padding: 30px;
+    }
+    @include media-breakpoint-up(xs) {
+        border-width: 10px;
+        padding: 15px;
+    }
+}
+.city_modal .city_modal_close {
+    width: 21px;
+    height: 21px;
+    position: absolute;
+    top: -17px;
+    right: 8px;
+    cursor: pointer;
+    display: block;
+    color: #fff;
+    font-size: 40px;
+}
+.city_overlay {
+	z-index:120; /* пoдлoжкa дoлжнa быть выше слoев элементoв сaйтa, нo ниже слoя мoдaльнoгo oкнa */
+	position:fixed; /* всегдa перекрывaет весь сaйт */
+	background-color:#000; /* чернaя */
+	opacity:0.8; /* нo немнoгo прoзрaчнa */
+	-moz-opacity:0.8; /* фикс прозрачности для старых браузеров */
+	filter:alpha(opacity=80);
+	width:100%; 
+	height:100%; /* рaзмерoм вo весь экрaн */
+	top:0; /* сверху и слевa 0, oбязaтельные свoйствa! */
+	left:0;
+	cursor:pointer;
+	display:none; /* в oбычнoм сoстoянии её нет) */
+}
+.choose_city_title {
+	display: block;
+	font-size: 24px;
+	margin-bottom: 20px;
+	color: $black;
+    @include media-breakpoint-up(lg) {
+        font-size: 28px;
+    }
+    font-weight: $bold;
+}
+.city_modal .links-city {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+.city_modal a {
+    display: inline-flex;
+    @include media-breakpoint-up(xlg) {
+        flex: 0 1 33.3333%;
+    }
+    @include media-breakpoint-down(lg) {
+        flex-grow: 1;
+        flex-basis: 0;
+    }
+    align-items: center;
+    color: $black;
+    white-space: nowrap;
+    padding: 9px 11px;
+    font-size: 14px;
+    text-decoration: none;
+    &:before {
+        content: "";
+        display: inline-block;
+        height: 12px;
+        width: 12px;
+        border: 1px solid #C5CFD8;
+        margin-right: 9px;
+        border-radius: 50%;
+    }
+    &.current-city {
+        background: $primary;
+        color: $white;
+        &:before {
+            border: 3.5px solid $white;
+            background: $primary;
+        }
+    }
+}
